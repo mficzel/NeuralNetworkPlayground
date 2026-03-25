@@ -3,7 +3,6 @@
 title: Neural Network Architecture
 ---
 classDiagram
-  note "From Duck till Zebra"
 
   class Network {
      +create(int inputWidth, int outputWidth, int networkWidth, int networkDepth) self
