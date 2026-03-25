@@ -16,22 +16,22 @@ classDiagram
   class Layer {
      + create(int inputWidth, int layerWidth) self
 
-     + setInputs(float[])
+     + setInputs(float[]) void
      + getOutputs() float[]
      
-     + setErrors(float[])
+     + setErrors(float[]) void
      + getUpstreamErrors() float[]
   }
 
   class Neuron {
      + create(int numInputs) self
      + setWeights(float[]) void
-     + getWeights(): float[]
+     + getWeights() float[]
      + setInputs(float[]) void
-     + getOutput(): float
+     + getOutput() float
 
-     + setError(float error)
-     + getUpstreamErrors(): float[]
+     + setError(float error) void
+     + getUpstreamErrors() float[]
   }
 
   Network --* Layer : layers
