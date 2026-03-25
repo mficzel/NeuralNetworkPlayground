@@ -14,7 +14,7 @@ classDiagram
   }
 
   class Layer {
-     + create(int width) self
+     + create(int inputWidth, int layerWidth) self
 
      + setInputs(float[])
      + getOutputs() float[]
