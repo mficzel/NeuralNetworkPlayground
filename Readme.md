@@ -5,15 +5,19 @@ title: Neural Network Architecture
 classDiagram
 
   class Network {
-     +create(int inputWidth, int outputWidth, int networkWidth, int networkDepth) self
+     + inputLayer Layer
+     + networkLayers Layer[]
+     + outputLayer Layer 
+     + create(int inputWidth, int outputWidth, int networkWidth, int networkDepth) self
 
-     +setInputs(float[]) void
-     +getOutputs() float[]
+     + setInputs(float[]) void
+     + getOutputs() float[]
 
-     +setErrors(float[]) void
+     + setErrors(float[]) void
   }
 
   class Layer {
+     + neurons Neuron[]
      + create(int inputWidth, int layerWidth) self
 
      + setInputs(float[]) void
