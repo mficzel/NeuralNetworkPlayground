@@ -31,7 +31,7 @@ classDiagram
      + getOutput(): float
 
      + setError(float error)
-     + getUpstreamErrors(): float
+     + getUpstreamErrors(): float[]
   }
 
   Network --* Layer : layers
