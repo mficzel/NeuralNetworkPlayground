@@ -8,6 +8,9 @@ for ($i = 0; $i <= 10000; $i++) {
     echo implode(',', [$r, $g, $b, $h, $s, $l]) . PHP_EOL;
 }
 
+/**
+ * @return array{float, float, float}
+ */
 function rgb_to_hsl(float $r, float $g, float $b): array
 {
     $max = max($r, $g, $b);
@@ -20,15 +23,11 @@ function rgb_to_hsl(float $r, float $g, float $b): array
     } else {
         $d = $max - $min;
         $s = $l > 0.5 ? $d / (2 - $max - $min) : $d / ($max + $min);
-
-        switch ($max) {
-            case $r: $h = ($g - $b) / $d + ($g < $b ? 6 : 0); break;
-            case $g: $h = ($b - $r) / $d + 2; break;
-            case $b: $h = ($r - $g) / $d + 4; break;
-            default:
-                throw  new \Exception('this should never happen');
-        }
-
+        $h = match($max) {
+            $r => ($g - $b) / $d + ($g < $b ? 6 : 0),
+            $g => ($b - $r) / $d + 2,
+            $b => ($r - $g) / $d + 4
+        };
         $h /= 6;
     }
 
