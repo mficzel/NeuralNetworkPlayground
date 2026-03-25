@@ -13,16 +13,16 @@ classDiagram
   }
 
   class Layer {
-     + create(int width): self
+     + create(int width) self
      + setInput(float[])
      + setError(float[])
      + getOutput() float[]
   }
 
   class Neuron {
-     + create()
-     + setWeights(float[]): void
-     + setInput(float[]): void
+     + create(int numInputs) self
+     + setWeights(float[]) void
+     + setInput(float[]) void
      + setError(float error)
      + getWeights(): float[]
      + getOutput(): float
