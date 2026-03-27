@@ -9,38 +9,47 @@ classDiagram
      + int outputWidth
      + int networkWidth
      + int networkDepth
-     + Layer inputLayer
-     + Layer[] networkLayers 
-     + Layer outputLayer  
+     + Layer[] layers
      + create(int inputWidth, int outputWidth, int networkWidth, int networkDepth) self
 
+     + float[] inputs
+     + float[] outputs
      + setInputs(float[]) void
      + getOutputs() float[]
 
+     + float[] errors 
      + setErrors(float[]) void
   }
 
   class Layer {
      + int inputWidth
-     + int layerWidth
-     + Neuron[] neurons 
+     + int layerWidth     
+     + Neuron[] neurons
      + create(int inputWidth, int layerWidth) self
-
+     
+     + float[] inputs
+     + float[] outputs
      + setInputs(float[]) void
      + getOutputs() float[]
      
+     + float[] errors
+     + float[] upstreamErrors 
      + setErrors(float[]) void
      + getUpstreamErrors() float[]
   }
 
   class Neuron {
-     + int inputWidth
-     + create(int inputWidth) self
-     + setWeights(float[]) void
-     + getWeights() float[]
-     + setInputs(float[]) void
-     + getOutput() float
+     + int dimension
+     + float[] weights
+     + create(int dimension, float[] weights) self
 
+     + float[] inputs
+     + float output
+     + setInputs(float[]) void
+     + getOutput() float  
+     
+     + float error
+     + float[] upstreamErrors
      + setError(float error) void
      + getUpstreamErrors() float[]
   }
